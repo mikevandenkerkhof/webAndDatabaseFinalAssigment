@@ -36,7 +36,17 @@
 			<ul>
 			<!-- This unordered list should show all of the 'artikelen' that are available in the database. 
 			Make sure you can address each of these list elements individually. -->
-			
+			<?php
+				$result = mysql_query("SELECT art, beschrijving FROM artikel");
+				while ($row = mysql_fetch_row($result))
+				{
+					echo '
+						<li>
+							 a'.$row[0].' - '.$row[1].'
+						</li>
+					';
+				}
+			?>
 			</ul>
 		</div><!-- End artikelen div-->
 	
@@ -44,6 +54,17 @@
 			<ul>
 			<!-- This unordered list should show all of the 'klanten' that are available in the database. 
 			Make sure you can address each of these list elements individually. -->
+			<?php
+				$result = mysql_query("SELECT klant, naam, woonplaats FROM klant");
+				while ($row = mysql_fetch_row($result))
+				{
+					echo '
+						<li>
+							 k'.$row[0].' - '.$row[1].' - '.$row[2].'
+						</li>
+					';
+				}
+			?>
 			</ul>
 		</div><!-- End klanten div-->
 		

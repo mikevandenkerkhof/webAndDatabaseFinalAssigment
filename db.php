@@ -2,8 +2,8 @@
 
 
 	$mysqlhost = "sql.ewi.tudelft.nl"; 
-	$user = "username";
-	$passwd = "passwd";
+	$user = "johnnywang3";
+	$passwd = "aap1992JW";
 	
 	
 	$mysql = mysql_connect($mysqlhost, $user, $passwd);
@@ -11,7 +11,7 @@
 		die('Could not connect: ' . mysql_error());
 	}
 
-	mysql_select_db('NAME');
+	mysql_select_db('ti1505_MvdK_JW_3');
 
 
 ?>
