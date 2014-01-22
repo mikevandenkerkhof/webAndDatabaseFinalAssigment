@@ -1,4 +1,4 @@
-<?php //include_once("db.php"); ?>
+<?php include_once("db.php"); ?>
 
 
 
@@ -36,18 +36,7 @@
 	<div id="left">
 		<div class="column" id="artikelen">
 			<ul>
-			
-			<?php
-				for ($i = 0; $i < 100; $i++)
-				{
-					echo '<li>'.$i.'</li>';
-					if ($i == 8)
-					{
-						echo '<li class="selected">dsa</li>';
-					}
-				}
-			?>
-			
+
 			<!-- This unordered list should show all of the 'artikelen' that are available in the database. 
 			Make sure you can address each of these list elements individually. -->
 			<?php
@@ -66,18 +55,11 @@
 	
 		<div class="column" id="klanten">
 			<ul>
-<<<<<<< HEAD
-			<?php
-				for ($i = 0; $i < 100; $i++)
-				{
-					echo '<li>'.$i.'</li>';
-					if ($i == 8)
-					{
-						echo '<li class="selected">dsa</li>';
-					}
-=======
+
+			
 			<!-- This unordered list should show all of the 'klanten' that are available in the database. 
 			Make sure you can address each of these list elements individually. -->
+			
 			<?php
 				$result = mysql_query("SELECT klant, naam, woonplaats FROM klant");
 				while ($row = mysql_fetch_row($result))
@@ -87,7 +69,6 @@
 							 k'.$row[0].' - '.$row[1].' - '.$row[2].'
 						</li>
 					';
->>>>>>> f3ac1cf5539ec64a5402edff4aeccd9f252c49e5
 				}
 			?>
 			</ul>
