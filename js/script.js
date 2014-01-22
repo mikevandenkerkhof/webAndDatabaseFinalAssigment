@@ -6,6 +6,8 @@ window.onload = function(){
 	$("searchNaam").observe('keyup', updateListKlant);	
 	$("searchWoonplaats").observe('keyup', updateListKlant);
 	$("hoeveelheid").observe('keyup', updateBedrag);
+	
+	
 	lis = $$("#artikelen > ul > li");
 	for(var i=0; i<lis.length; i++)
 	{
@@ -34,9 +36,13 @@ function artSelect(art){
 	selectedArt.className = "selected";
 	
 	//perform an Ajax request
-	alert(this.innerHTML);
-	alert(ajax("mode=getArtikel&artikel=1982898"));
+	string = art.innerHTML;
+	art = string.trim().substring(1).split(" - ");
+	updateFieldsArtikel(ajax("mode=getArtikel&artikel="+art[0]));
 
+	
+	
+	
 }
 
 /*This  functieis ois called when a 'klant' is selected in the list*/
@@ -56,9 +62,33 @@ function klantSelect(klant){
 function updateFieldsArtikel(ajax) {
 
 	//call transformIntoArray and update all information fields on the right to display all artikel information
+	array = transformIntoArray(ajax);
+	
+	$("beschrijving").value = array[1];
+	$("kleur").value = array[2];
+	$("voorraad").value = array[3];
+	$("prijs").value = array[4];
+	$("srtc").value = array[5];
+	$("hoeveelheid").value = 1;
 	
 	//Create new options for every afdeling	 
+	node = $("afd");
 	
+	while (node.hasChildNodes()) 
+	{
+		node.removeChild(node.lastChild);
+	}
+	
+	for (i = 6; i < array.length; i++)
+	{
+		if (array[i]>0)
+		{
+			var newOption = document.createElement("option");
+			newOption.innerHTML = array[i];
+			node.appendChild(newOption);
+		}		
+	}
+
 	updateBedrag();
 	 
 }
@@ -70,7 +100,7 @@ function updateFieldsKlant(ajax) {
 
 /*The bedrag (=hoeveelheid * artikel.prijs) is calculated and displayed in this function*/
 function updateBedrag(event){
-
+	$("bedrag").update(parseFloat($("hoeveelheid").value) * parseFloat($("prijs").value));
 }
 
 /*This function is called when an artikel is searched using the search fields */
