@@ -62,6 +62,7 @@ body{
 .column li{	
 	padding-left: 10px;
 	padding-right: 10px;
+	cursor: pointer;
 }
 
 .column li.selected
