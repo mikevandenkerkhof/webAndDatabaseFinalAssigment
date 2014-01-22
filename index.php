@@ -1,4 +1,4 @@
-<?php include_once("db.php"); ?>
+<?php //include_once("db.php"); ?>
 
 
 
@@ -18,11 +18,13 @@
 	<div id="header"></div>
 	
 	<div id="search">
+	
 		<fieldset id="zoekartikel">
 			<legend>Zoek artikel</legend>
 			<label>Artikelnr</label><input type="text" id="searchArt" /><br />
 			<label>Beschrijving</label><input type="text" id="searchBeschrijving" /><br />   
 		</fieldset>
+		
 		<fieldset id="zoekklant">
 			<legend>Zoek klant</legend>
 			<label>Klantnr</label><input type="text" id="searchKlant" /><br />
@@ -34,6 +36,18 @@
 	<div id="left">
 		<div class="column" id="artikelen">
 			<ul>
+			
+			<?php
+				for ($i = 0; $i < 100; $i++)
+				{
+					echo '<li>'.$i.'</li>';
+					if ($i == 8)
+					{
+						echo '<li class="selected">dsa</li>';
+					}
+				}
+			?>
+			
 			<!-- This unordered list should show all of the 'artikelen' that are available in the database. 
 			Make sure you can address each of these list elements individually. -->
 			
@@ -42,8 +56,16 @@
 	
 		<div class="column" id="klanten">
 			<ul>
-			<!-- This unordered list should show all of the 'klanten' that are available in the database. 
-			Make sure you can address each of these list elements individually. -->
+			<?php
+				for ($i = 0; $i < 100; $i++)
+				{
+					echo '<li>'.$i.'</li>';
+					if ($i == 8)
+					{
+						echo '<li class="selected">dsa</li>';
+					}
+				}
+			?>
 			</ul>
 		</div><!-- End klanten div-->
 		
@@ -51,6 +73,18 @@
 			<div id="divheader">Verkopen deze dag</div>
 			<ul id ="verkooplist">
 			<!-- This list should show all 'verkopen' that are done this day-->
+			
+			<?php
+				for ($i = 0; $i < 100; $i++)
+				{
+					echo '<li>'.$i.'</li>';
+					if ($i == 8)
+					{
+						echo '<li class="selected">dsa</li>';
+					}
+				}
+			?>
+			
 		  </ul>
 		</div><!-- End verkopen div-->
 	</div><!-- End left div-->
