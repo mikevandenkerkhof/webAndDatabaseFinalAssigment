@@ -40,8 +40,8 @@
 			<!-- This unordered list should show all of the 'artikelen' that are available in the database. 
 			Make sure you can address each of these list elements individually. -->
 			<?php
-				$result = mysql_query("SELECT art, beschrijving FROM artikel");
-				while ($row = mysql_fetch_row($result))
+				$artikelen = mysql_query("SELECT art, beschrijving FROM artikel");
+				while ($row = mysql_fetch_row($artikelen))
 				{
 					echo '
 						<li>
@@ -56,13 +56,11 @@
 		<div class="column" id="klanten">
 			<ul>
 
-			
 			<!-- This unordered list should show all of the 'klanten' that are available in the database. 
 			Make sure you can address each of these list elements individually. -->
-			
 			<?php
-				$result = mysql_query("SELECT klant, naam, woonplaats FROM klant");
-				while ($row = mysql_fetch_row($result))
+				$klanten = mysql_query("SELECT klant, naam, woonplaats FROM klant");
+				while ($row = mysql_fetch_row($klanten))
 				{
 					echo '
 						<li>
@@ -77,16 +75,23 @@
 		<div id="verkopen" class>
 			<div id="divheader">Verkopen deze dag</div>
 			<ul id ="verkooplist">
-			<!-- This list should show all 'verkopen' that are done this day-->
 			
+			<!-- This list should show all 'verkopen' that are done this day-->
 			<?php
-				for ($i = 0; $i < 100; $i++)
+				$datum = '';
+				
+				$verkopen = mysql_query("	SELECT artikel.art, artikel.beschrijving, klant.naam
+											FROM artikel, klant, verkoop
+											WHERE verkoop.art = artikel.art
+											AND verkoop.klant = klant.klant
+											AND verkoop.datum = '".$datum."'	");
+				while ($row = mysql_fetch_row($verkopen))
 				{
-					echo '<li>'.$i.'</li>';
-					if ($i == 8)
-					{
-						echo '<li class="selected">dsa</li>';
-					}
+					echo '
+						<li>
+							 a'.$row[0].' - '.$row[1].' - '.$row[2].'
+						</li>
+					';
 				}
 			?>
 			
