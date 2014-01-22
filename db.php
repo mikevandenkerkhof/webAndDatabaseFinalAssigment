@@ -1,5 +1,6 @@
 <?php
 
+
 	$mysqlhost = "sql.ewi.tudelft.nl"; 
 	$user = "username";
 	$passwd = "passwd";
