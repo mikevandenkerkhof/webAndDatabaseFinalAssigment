@@ -68,6 +68,7 @@ function updateFieldsArtikel(ajax) {
 	//call transformIntoArray and update all information fields on the right to display all artikel information
 	array = transformIntoArray(ajax);
 	
+	$("art").innerHTML = array[0];
 	$("beschrijving").value = array[1];
 	$("kleur").value = array[2];
 	$("voorraad").value = array[3];
@@ -132,18 +133,16 @@ function updateBedrag(event){
 
 /*This function is called when an artikel is searched using the search fields */
 function updateListArtikel(event){
-	str = "";
 	lis = $$("#artikelen > ul > li");
-	zoekterm = this.value.toLowerCase();
-	str += zoekterm;
+	artikelnummer = $("searchArt").value.toLowerCase();
+	beschrijving = $("searchBeschrijving").value.toLowerCase();
+	
 	for(var i=0; i<lis.length; i++)
 	{
 		text = lis[i].innerHTML.toLowerCase();
-		art = text.trim().substring(1).split(" - ");
+		art = text.trim().split(" - ");
 		
-		if (this.
-		
-		if (text.indexOf(zoekterm) == -1)
+		if (art[0].indexOf(artikelnummer) == -1 || art[1].indexOf(beschrijving)==-1)
 		{
 			lis[i].style.visibility = "hidden";
 			lis[i].style.position = "absolute";
@@ -154,13 +153,32 @@ function updateListArtikel(event){
 			lis[i].style.position = "relative";
 		}
 	}
-	//alert(str);
-	
+
 }
 
 /*This function is called when a klant is searched using the search fields*/
 function updateListKlant(event){
+	lis = $$("#klanten > ul > li");
+	klantnummer = $("searchKlant").value.toLowerCase();
+	naam = $("searchNaam").value.toLowerCase();
+	woonplaats = $("searchWoonplaats").value.toLowerCase();	
 	
+	for(var i=0; i<lis.length; i++)
+	{
+		text = lis[i].innerHTML.toLowerCase();
+		art = text.trim().split(" - ");
+		
+		if (art[0].indexOf(klantnummer) == -1 || art[1].indexOf(naam)==-1 || art[2].indexOf(woonplaats)==-1)
+		{
+			lis[i].style.visibility = "hidden";
+			lis[i].style.position = "absolute";
+		}
+		else
+		{
+			lis[i].style.visibility = "visible";
+			lis[i].style.position = "relative";
+		}
+	}
 }
 
 
