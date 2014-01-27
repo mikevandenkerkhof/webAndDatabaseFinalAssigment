@@ -100,18 +100,53 @@ function updateFieldsKlant(ajax) {
 
 /*The bedrag (=hoeveelheid * artikel.prijs) is calculated and displayed in this function*/
 function updateBedrag(event){
-	$("bedrag").update(parseFloat($("hoeveelheid").value) * parseFloat($("prijs").value));
+	bedrag = Math.round(parseFloat($("hoeveelheid").value) * parseFloat($("prijs").value)*100)/100;
+	if (isNaN(bedrag))
+	{
+		bedrag = "";
+	}
+	else if (bedrag % 1 == 0)
+	{
+		bedrag += ".00"
+	}
+	else if (bedrag*10 % 1 == 0)
+	{
+		bedrag += "0"
+	}
+	$("bedrag").update(bedrag);
 }
 
 /*This function is called when an artikel is searched using the search fields */
 function updateListArtikel(event){
-
-
+	str = "";
+	lis = $$("#artikelen > ul > li");
+	zoekterm = this.value.toLowerCase();
+	str += zoekterm;
+	for(var i=0; i<lis.length; i++)
+	{
+		text = lis[i].innerHTML.toLowerCase();
+		art = text.trim().substring(1).split(" - ");
+		
+		if (this.
+		
+		if (text.indexOf(zoekterm) == -1)
+		{
+			lis[i].style.visibility = "hidden";
+			lis[i].style.position = "absolute";
+		}
+		else
+		{
+			lis[i].style.visibility = "visible";
+			lis[i].style.position = "relative";
+		}
+	}
+	//alert(str);
+	
 }
 
 /*This function is called when a klant is searched using the search fields*/
 function updateListKlant(event){
-
+	
 }
 
 
