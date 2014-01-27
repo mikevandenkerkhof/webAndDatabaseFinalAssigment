@@ -56,6 +56,10 @@ function klantSelect(klant){
 	selectedKlant.className = "selected";
 	
 	//perform an Ajax request
+	string = klant.innerHTML;
+	klant = string.trim().substring(1).split(" - ");
+	updateFieldsKlant(ajax("mode=getKlant&klant="+klant[0]));
+
 }
 
 /*This functie should be called to update the artikel fields*/
@@ -96,6 +100,16 @@ function updateFieldsArtikel(ajax) {
 /*Deze functie vult daadwerkelijk de klant velden in*/
 function updateFieldsKlant(ajax) {
 	//call transformIntoArray and update all information fields on the right to display all klant information
+	array = transformIntoArray(ajax);
+	
+	$("klant").innerHTML = array[0];	
+	$("naam").value = array[1];
+	$("voorl").value = array[2];
+	$("adres").value = array[3];
+	$("postc").value = array[4];
+	$("woonplaats").value = array[5];
+	$("schuld").value = array[6];
+	
 }
 
 /*The bedrag (=hoeveelheid * artikel.prijs) is calculated and displayed in this function*/
