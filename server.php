@@ -34,12 +34,11 @@ else if(isset($_REQUEST['mode']) && $_REQUEST['mode']=='saveAankoop'){
 	//Save a purchase to the database
 	$klant = $_REQUEST['klant'];
 	$art = $_REQUEST['art'];
-	$hoeveel = $_REQUEST['hoeveelheid'];
+	$hoeveel = $_REQUEST['hoeveel'];
 	$afd = $_REQUEST['afd'];
 	$aanbet = $_REQUEST['aanbet'];
 	$prijs = $_REQUEST['prijs'];
-	$beschr = $_REQUEST['beschrijving'];
-	$voorraad = $_REQUEST['voorraad'];
+	$beschr = $_REQUEST['beschr'];
 	
 /*
 	$IN_verkoop = mysql_query(	'INSERT INTO verkoop (art, afd, hoeveelheid, bedrag, klant, datum, aanbet)
@@ -49,9 +48,10 @@ else if(isset($_REQUEST['mode']) && $_REQUEST['mode']=='saveAankoop'){
 											'.$prijs.',
 											'.$klant.',
 											DATE(),
-											'.$aanbet.',
-											)' );
+											'.$aanbet.' )' );
 */
+
+	echo $art.';'.$afd.';'.$hoeveel.';'.$prijs.';'.$klant.';DATE();'.$aanbet.' )';
 }
 
 ?>
