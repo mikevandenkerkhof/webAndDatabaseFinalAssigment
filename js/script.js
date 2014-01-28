@@ -187,11 +187,18 @@ This function performs a Ajax request that connects with server.php where a sale
 */
 function saveAankoop(){
 	
+	updateVerkopen("a1982898 - voetbalschoen - Hoes");
 }
 
 /*When a sale is done, update the list of 'verkopen', using Scriptaculous!!!*/
 function updateVerkopen(ajax){
 
+	var newLi = document.createElement("li");
+	newLi.innerHTML = ajax;
+
+	$("verkooplist").appendChild(newLi);
+	$$("#verkooplist > li").last().blindDown();
+	
 }
 
 function transformIntoArray(accessoriesString) {

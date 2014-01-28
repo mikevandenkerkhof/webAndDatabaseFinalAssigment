@@ -78,8 +78,7 @@
 			
 			<!-- This list should show all 'verkopen' that are done this day-->
 			<?php
-				$datum = '2003-01-31';
-				
+				$datum = date("Y-m-d");
 				$verkopen = mysql_query("	SELECT artikel.art, artikel.beschrijving, klant.naam
 											FROM artikel, klant, verkoop
 											WHERE verkoop.art = artikel.art
