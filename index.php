@@ -124,7 +124,7 @@
 				</select>  <br/>
 				<label>Bedrag</label> &euro; <span id="bedrag">0.00</span><br/>
 				<label>Aanbetaling</label> <input type="text" name="aanbet" id="aanbet"/> <br/>
-				<button type="button" id="submit">Voeg verkoop toe</button>
+				<button type="button" onclick="saveAankoop()" id="submit">Voeg verkoop toe</button>
 			</div>
 		</fieldset>
     </div><!-- End right div-->

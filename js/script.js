@@ -186,12 +186,35 @@ function updateListKlant(event){
 This function performs a Ajax request that connects with server.php where a sale is added
 */
 function saveAankoop(){
+	var klant = $('klant').innerHTML;
+	var art = $('art').innerHTML;
+	var hoeveel = $('hoeveelheid').value;
+	var afd = $('afd').value;
+	var aanbet = $('aanbet').value;
+	var prijs = $('prijs').value;
+	var beschr = $('beschrijving').value;
+	var voorraad = $('voorraad').value;
 	
+	if(hoeveel <= voorraad)
+	{
+		updateVerkopen(ajax( "mode=saveAankoop&"
+								+ "&klant=" + klant 
+								+ "&art=" + art
+								+ "&hoeveel=" + hoeveel
+								+ "&afd=" + afd
+								+ "&aanbet=" + aanbet
+								+ "&prijs=" + prijs
+								+ "&beschr=" + beschr ));
+	}
+	else
+	{
+		alert("De gevraagde hoeveelheid is helaas niet beschikbaar");
+	}
 }
 
 /*When a sale is done, update the list of 'verkopen', using Scriptaculous!!!*/
 function updateVerkopen(ajax){
-
+	alert("hi");
 }
 
 function transformIntoArray(accessoriesString) {
