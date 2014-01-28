@@ -210,11 +210,20 @@ function saveAankoop(){
 	{
 		alert("De gevraagde hoeveelheid is helaas niet beschikbaar");
 	}
+
+//	updateVerkopen("a1982898 - voetbalschoen - Hoes");
 }
 
 /*When a sale is done, update the list of 'verkopen', using Scriptaculous!!!*/
 function updateVerkopen(ajax){
-	alert("hi");
+//	alert("hi");
+
+	var newLi = document.createElement("li");
+	newLi.innerHTML = ajax;
+
+	$("verkooplist").appendChild(newLi);
+	$$("#verkooplist > li").last().blindDown();
+	
 }
 
 function transformIntoArray(accessoriesString) {
