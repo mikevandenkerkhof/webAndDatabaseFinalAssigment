@@ -191,20 +191,22 @@ function saveAankoop(){
 	var hoeveel = $('hoeveelheid').value;
 	var afd = $('afd').value;
 	var aanbet = $('aanbet').value;
-	var prijs = $('prijs').value;
+	var bedrag = $('bedrag').innerHTML;
 	var beschr = $('beschrijving').value;
+	var naam = $('naam').value
 	var voorraad = $('voorraad').value;
 	
-	if(hoeveel <= voorraad)
+	if(hoeveel <= parseInt(voorraad))
 	{
-		updateVerkopen(ajax( "mode=saveAankoop&"
+		updateVerkopen(ajax( "mode=saveAankoop"
 								+ "&klant=" + klant 
 								+ "&art=" + art
 								+ "&hoeveel=" + hoeveel
 								+ "&afd=" + afd
 								+ "&aanbet=" + aanbet
-								+ "&prijs=" + prijs
-								+ "&beschr=" + beschr ));
+								+ "&bedrag=" + bedrag
+								+ "&beschr=" + beschr 
+								+ "&naam=" + naam ));
 	}
 	else
 	{
@@ -216,7 +218,6 @@ function saveAankoop(){
 
 /*When a sale is done, update the list of 'verkopen', using Scriptaculous!!!*/
 function updateVerkopen(ajax){
-//	alert("hi");
 
 	var newLi = document.createElement("li");
 	newLi.innerHTML = ajax;
