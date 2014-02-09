@@ -214,6 +214,25 @@ function saveAankoop(){
 	}
 
 //	updateVerkopen("a1982898 - voetbalschoen - Hoes");
+
+	$("klant").innerHTML = "";	
+	$("naam").value = "";
+	$("voorl").value = "";
+	$("adres").value = "";
+	$("postc").value = "";
+	$("woonplaats").value = "";
+	$("schuld").value = "";
+	$("art").innerHTML = "";
+	$("beschrijving").value = "";
+	$("kleur").value = "";
+	$("voorraad").value = "";
+	$("prijs").value = "";
+	$("srtc").value = "";
+	$("hoeveelheid").value = "";
+	$("afd").innerHTML = "";
+	$("bedrag").innerHTML = "0.00";
+	$("aanbet").value = "";
+	
 }
 
 /*When a sale is done, update the list of 'verkopen', using Scriptaculous!!!*/
